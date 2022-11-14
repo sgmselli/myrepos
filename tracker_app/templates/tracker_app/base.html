@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <h1><a href="{% url 'home' %}">Inventory Tracker</a></h1>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

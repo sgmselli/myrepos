@@ -1,0 +1,21 @@
+{% extends 'tracker_app/base.html' %}
+
+{% block head %}
+<title>Ingredient List</title>
+<link rel="stylesheet" href="static/style.css">
+{% endblock %}
+
+{% block content %}
+<h2>Home{% if user.is_authenticated %}, hello {{name}} {% endif %}</h2>
+
+
+<a href="{% url 'ingredientlist' %}">Ingredients</a>
+
+{% if user.is_authenticated %}
+<h3><a href="{% url 'logout' %}">Log Out</a></h3>
+
+{% else %}
+<h3><a href="{% url 'login' %}">Log in</a></h3>
+{% endif %}
+
+{% endblock %}

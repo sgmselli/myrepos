@@ -1,0 +1,33 @@
+{% extends 'tracker_app/base.html' %}
+
+{% block head %}
+
+<title>Ingredient List</title>
+<link rel="stylesheet" href="static/style.css">
+{% endblock %}
+
+{% block content %}
+<h2>Ingredient List</h2>
+
+<a href="{% url 'ingredientcreate' %}">Add Ingredient</a>
+
+<table>
+    <tr>
+        <th>Ingredient Name</th>
+        <th>Quantity</th>
+        <th>Price Per Unit</th>
+    </tr>
+    {% for ingredient in ingredient_list %}
+    <tr>
+        <td>{{ingredient.ingredient_name}}</td>
+        <td>{{ingredient.quantity}}</td>
+        <td>{{ingredient.price}}</td>
+        <td><a href="{% url 'ingredientupdate' ingredient.id %}">Edit</a></td>
+        <td><a href="{% url 'ingredientdelete' ingredient.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+
+
+</table>
+
+{% endblock %}
